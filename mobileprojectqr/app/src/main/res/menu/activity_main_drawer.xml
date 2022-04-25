@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:id="@+id/nav_group_main"
+        android:checkableBehavior="all">
+        
+        <item
+            android:id="@+id/nav_scan"
+            android:icon="@drawable/scannericon"
+            android:title="@string/qr_scanner" />
+        <item
+            android:id="@+id/nav_generate"
+            android:icon="@drawable/generatoricon"
+            android:title="@string/qr_generator" />
+        <item
+            android:id="@+id/nav_history"
+            android:icon="@drawable/ic_menu_history2"
+            android:title="@string/history" />
+        <item
+            android:id="@+id/nav_settings"
+            android:icon="@drawable/ic_settings"
+            android:title="@string/settings" />
+
+    </group>
+
+
+</menu>

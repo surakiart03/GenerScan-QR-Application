@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.mobileproject.mobileprojectqr">
+
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"
+        android:maxSdkVersion="32"/>
+
+    <uses-sdk tools:overrideLibrary="com.google.zxing.client.android" />
+
+    <application
+        android:installLocation="preferExternal"
+        android:hardwareAccelerated="true"
+        android:allowBackup="true"
+        android:icon="@drawable/logo_blue"
+        android:roundIcon="@drawable/logo_blue"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme"
+        tools:ignore="GoogleAppIndexingWarning"
+        android:exported="true"
+        android:fullBackupContent="false">
+        <activity
+            android:name=".ui.activities.SplashActivity"
+            android:exported="true"
+            android:label="@string/app_name">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:exported="true"
+            android:name=".ui.activities.ScannerActivity"
+            android:label="@string/app_name"
+            android:clearTaskOnLaunch="true"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:exported="true"
+            android:name=".ui.activities.HistoryActivity"
+            android:label="@string/history"
+            android:parentActivityName=".ui.activities.ScannerActivity" />
+        <activity
+            android:exported="true"
+            android:name=".ui.activities.generator.QrGeneratorOverviewActivity"
+            android:label="@string/QRGenerator"
+            android:parentActivityName=".ui.activities.ScannerActivity" />
+        <activity
+            android:exported="true"
+            android:name=".ui.activities.SettingsActivity"
+            android:parentActivityName=".ui.activities.ScannerActivity"
+            android:label="@string/Settings"/>
+        <activity
+            android:exported="true"
+            android:name=".ui.activities.ResultActivity" />
+        <activity
+            android:exported="true"
+            android:name=".ui.activities.generator.QrGeneratorDisplayActivity"
+            android:label="GenerScan QR"
+            android:parentActivityName=".ui.activities.generator.QrGeneratorOverviewActivity" />
+        <activity
+            android:exported="true"
+            android:name=".ui.activities.generator.MailEnterActivity"
+            android:label="E-Mail"
+            android:parentActivityName=".ui.activities.generator.QrGeneratorOverviewActivity" />
+        <activity
+            android:exported="true"
+            android:name=".ui.activities.generator.UrlEnterActivity"
+            android:label="URL"
+            android:parentActivityName=".ui.activities.generator.QrGeneratorOverviewActivity" />
+        <activity
+            android:exported="true"
+            android:name=".ui.activities.generator.SmsEnterActivity"
+            android:label="SMS"
+            android:parentActivityName=".ui.activities.generator.QrGeneratorOverviewActivity" />
+        <activity
+            android:exported="true"
+            android:name=".ui.activities.generator.TextEnterActivity"
+            android:label="Text"
+            android:parentActivityName=".ui.activities.generator.QrGeneratorOverviewActivity"/>
+
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="org.surakiart.qrscanner.fileprovider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/fileprovider_path" />
+        </provider>
+    </application>
+
+</manifest>
